@@ -1,3 +1,20 @@
+resource "google_compute_network" "kubernetes_the_hard_way" {
+  name                    = "kubernetes-the-hard-way"
+  auto_create_subnetworks = false
+  project                 = "${var.project_id}"
+}
+
+resource "google_compute_subnetwork" "kubernetes" {
+  name          = "kubernetes"
+  network       = "${google_compute_network.kubernetes_the_hard_way.name}"
+  ip_cidr_range = "10.240.0.0/24"
+}
+
+resource "google_compute_address" "kubernetes_the_hard_way" {
+  name   = "kubernetes-the-hard-way"
+  region = "${var.region}"
+}
+
 resource "google_compute_firewall" "kubernetes_the_hard_way_internal" {
   name          = "kubernetes-the-hard-way-allow-internal"
   network       = "${google_compute_network.kubernetes_the_hard_way.name}"
