@@ -7,7 +7,6 @@ This repo is no way a replacement of the original tutorial. Basic motive here is
 ## Instructions:
 1. Go to the gcp directory and run `terraform init`.
 2. Download service account credentials for you project from GCP console https://console.cloud.google.com/apis/credentials/serviceaccountkey and move it into the gcp directory.
-2. Update project id by adding  `project_id = "{YOUR_PROJECT_ID}"` in terraform.tfvars.
-3. You can also update region and zone if required.
+3. Update region and zone if required in `variables.tf`.
 4. Run `terraform apply`
 5. To delete the resources once the tutorial is finished run `terraform destroy`

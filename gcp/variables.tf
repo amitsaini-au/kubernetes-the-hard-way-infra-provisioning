@@ -1,8 +1,3 @@
-variable "project_id" {
-  type        = string
-  description = "Unique id for the project"
-  default     = "kubelearn"
-}
 variable "region" {
   type        = string
   description = "Region for the project"

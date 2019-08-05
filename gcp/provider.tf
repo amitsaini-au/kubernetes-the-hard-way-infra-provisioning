@@ -1,5 +1,5 @@
 provider "google" {
   credentials = "${file("account.json")}"
-  project     = "${var.project_id}"
+  project     = "${jsondecode(file("account.json"))["project_id"]}"
   region      = "${var.region}"
 }

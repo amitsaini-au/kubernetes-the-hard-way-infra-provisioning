@@ -1,7 +1,7 @@
 resource "google_compute_network" "kubernetes_the_hard_way" {
   name                    = "kubernetes-the-hard-way"
   auto_create_subnetworks = false
-  project                 = "${var.project_id}"
+  project                 = "${jsondecode(file("account.json"))["project_id"]}"
 }
 
 resource "google_compute_subnetwork" "kubernetes" {
